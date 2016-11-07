@@ -2,6 +2,7 @@
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.root))\Build\Config.Definitions.Durango.props" />
   <ItemGroup>
+    <ClCompile Include="..\..\http\client\http_client.cpp" />
     <ClCompile Include="..\..\http\client\http_client_msg.cpp" />
     <ClCompile Include="..\..\http\client\http_client_winrt.cpp" />
     <ClCompile Include="..\..\http\oauth\oauth2.cpp" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\..\..\include\cpprest\version.h" />
     <ClInclude Include="..\..\..\include\cpprest\ws_client.h" />
     <ClInclude Include="..\..\..\include\cpprest\ws_msg.h" />
+    <ClInclude Include="..\..\http\client\http_client_impl.h" />
     <ClInclude Include="..\..\pch\stdafx.h">
       <Filter>Header Files\precompiled header</Filter>
     </ClInclude>
