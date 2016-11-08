@@ -102,8 +102,10 @@ public:
         }
     }
 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800))
     connection(const connection&) = delete;
     connection& operator=(const connection&) = delete;
+#endif
 
     void close();
 

@@ -365,8 +365,10 @@ public:
     winrt_client(http::uri&& address, http_client_config&& client_config)
         : _http_client_communicator(std::move(address), std::move(client_config)) { }
 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800))
     winrt_client(const winrt_client&) = delete;
     winrt_client &operator=(const winrt_client&) = delete;
+#endif
 
     virtual pplx::task<http_response> propagate(http_request request) override
     {

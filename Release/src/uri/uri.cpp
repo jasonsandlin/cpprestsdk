@@ -55,6 +55,7 @@ utility::string_t uri_components::join()
 
     utility::string_t ret;
 
+#if (defined(_MSC_VER) && (_MSC_VER >= 1800))
     if (!m_scheme.empty())
     {
         ret.append(m_scheme).append({ _XPLATSTR(':') });
@@ -99,6 +100,54 @@ utility::string_t uri_components::join()
     }
 
     return ret;
+#else
+    utility::ostringstream_t os;
+    os.imbue(std::locale::classic());
+
+    if (!m_scheme.empty())
+    {
+        os << m_scheme << _XPLATSTR(':');
+    }
+
+    if (!m_host.empty())
+    {
+        os << _XPLATSTR("//");
+
+        if (!m_user_info.empty())
+        {
+            os << m_user_info << _XPLATSTR('@');
+        }
+
+        os << m_host;
+
+        if (m_port > 0)
+        {
+            os << _XPLATSTR(':') << m_port;
+        }
+    }
+
+    if (!m_path.empty())
+    {
+        // only add the leading slash when the host is present
+        if (!m_host.empty() && m_path.front() != _XPLATSTR('/'))
+        {
+            os << _XPLATSTR('/');
+        }
+        os << m_path;
+    }
+
+    if (!m_query.empty())
+    {
+        os << _XPLATSTR('?') << m_query;
+    }
+
+    if (!m_fragment.empty())
+    {
+        os << _XPLATSTR('#') << m_fragment;
+    }
+
+    return os.str();
+#endif
 }
 }
 

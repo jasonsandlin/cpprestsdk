@@ -100,7 +100,7 @@ class _http_client_communicator : public http_pipeline_stage
 {
 public:
 
-    virtual ~_http_client_communicator() override = default;
+    virtual ~_http_client_communicator() override {};
 
     // Asynchronously send a HTTP request and process the response.
     void async_send_request(const std::shared_ptr<request_context> &request);
