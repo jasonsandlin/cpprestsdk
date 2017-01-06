@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B4A418C1E1DC13600E17B09 /* http_client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B4A418B1E1DC13600E17B09 /* http_client.cpp */; };
 		9B97BC1F1BE2D08200CF1E29 /* http_client_asio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBEB1BE2D08200CF1E29 /* http_client_asio.cpp */; };
 		9B97BC201BE2D08200CF1E29 /* http_client_msg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBEC1BE2D08200CF1E29 /* http_client_msg.cpp */; };
 		9B97BC231BE2D08200CF1E29 /* x509_cert_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBEF1BE2D08200CF1E29 /* x509_cert_utilities.cpp */; };
-		9B97BC251BE2D08200CF1E29 /* x509_cert_utilities_apple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBF11BE2D08200CF1E29 /* x509_cert_utilities_apple.cpp */; };
 		9B97BC271BE2D08200CF1E29 /* http_helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBF41BE2D08200CF1E29 /* http_helpers.cpp */; };
 		9B97BC281BE2D08200CF1E29 /* http_msg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBF51BE2D08200CF1E29 /* http_msg.cpp */; };
 		9B97BC291BE2D08200CF1E29 /* http_listener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9B97BBF71BE2D08200CF1E29 /* http_listener.cpp */; };
@@ -51,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B4A418A1E1DBFC300E17B09 /* http_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_client_impl.h; sourceTree = "<group>"; };
+		9B4A418B1E1DC13600E17B09 /* http_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_client.cpp; sourceTree = "<group>"; };
 		9B97BAE11BE29EAF00CF1E29 /* libCasablanca.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCasablanca.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B97BB7E1BE2D06E00CF1E29 /* astreambuf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = astreambuf.h; sourceTree = "<group>"; };
 		9B97BB7F1BE2D06E00CF1E29 /* asyncrt_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asyncrt_utils.h; sourceTree = "<group>"; };
@@ -59,7 +61,6 @@
 		9B97BB831BE2D06E00CF1E29 /* basic_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_types.h; sourceTree = "<group>"; };
 		9B97BB841BE2D06E00CF1E29 /* cpprest_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cpprest_compat.h; sourceTree = "<group>"; };
 		9B97BB851BE2D06E00CF1E29 /* fileio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fileio.h; sourceTree = "<group>"; };
-		9B97BB861BE2D06E00CF1E29 /* http_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_client_impl.h; sourceTree = "<group>"; };
 		9B97BB871BE2D06E00CF1E29 /* http_constants.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = http_constants.dat; sourceTree = "<group>"; };
 		9B97BB881BE2D06E00CF1E29 /* http_helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_helpers.h; sourceTree = "<group>"; };
 		9B97BB891BE2D06E00CF1E29 /* http_server.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_server.h; sourceTree = "<group>"; };
@@ -100,7 +101,6 @@
 		9B97BBEB1BE2D08200CF1E29 /* http_client_asio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_client_asio.cpp; sourceTree = "<group>"; };
 		9B97BBEC1BE2D08200CF1E29 /* http_client_msg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_client_msg.cpp; sourceTree = "<group>"; };
 		9B97BBEF1BE2D08200CF1E29 /* x509_cert_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = x509_cert_utilities.cpp; sourceTree = "<group>"; };
-		9B97BBF11BE2D08200CF1E29 /* x509_cert_utilities_apple.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = x509_cert_utilities_apple.cpp; sourceTree = "<group>"; };
 		9B97BBF41BE2D08200CF1E29 /* http_helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_helpers.cpp; sourceTree = "<group>"; };
 		9B97BBF51BE2D08200CF1E29 /* http_msg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_msg.cpp; sourceTree = "<group>"; };
 		9B97BBF71BE2D08200CF1E29 /* http_listener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_listener.cpp; sourceTree = "<group>"; };
@@ -203,7 +203,6 @@
 				9B97BB831BE2D06E00CF1E29 /* basic_types.h */,
 				9B97BB841BE2D06E00CF1E29 /* cpprest_compat.h */,
 				9B97BB851BE2D06E00CF1E29 /* fileio.h */,
-				9B97BB861BE2D06E00CF1E29 /* http_client_impl.h */,
 				9B97BB871BE2D06E00CF1E29 /* http_constants.dat */,
 				9B97BB881BE2D06E00CF1E29 /* http_helpers.h */,
 				9B97BB891BE2D06E00CF1E29 /* http_server.h */,
@@ -265,10 +264,11 @@
 		9B97BBEA1BE2D08200CF1E29 /* client */ = {
 			isa = PBXGroup;
 			children = (
+				9B4A418B1E1DC13600E17B09 /* http_client.cpp */,
+				9B4A418A1E1DBFC300E17B09 /* http_client_impl.h */,
 				9B97BBEB1BE2D08200CF1E29 /* http_client_asio.cpp */,
 				9B97BBEC1BE2D08200CF1E29 /* http_client_msg.cpp */,
 				9B97BBEF1BE2D08200CF1E29 /* x509_cert_utilities.cpp */,
-				9B97BBF11BE2D08200CF1E29 /* x509_cert_utilities_apple.cpp */,
 			);
 			path = client;
 			sourceTree = "<group>";
@@ -446,8 +446,8 @@
 				9B97BC311BE2D08200CF1E29 /* json_parsing.cpp in Sources */,
 				9B97BC2C1BE2D08200CF1E29 /* http_server_asio.cpp in Sources */,
 				9B97BC281BE2D08200CF1E29 /* http_msg.cpp in Sources */,
+				9B4A418C1E1DC13600E17B09 /* http_client.cpp in Sources */,
 				9B97BC411BE2D08200CF1E29 /* web_utilities.cpp in Sources */,
-				9B97BC251BE2D08200CF1E29 /* x509_cert_utilities_apple.cpp in Sources */,
 				9B97BC321BE2D08200CF1E29 /* json_serialization.cpp in Sources */,
 				9B97BC271BE2D08200CF1E29 /* http_helpers.cpp in Sources */,
 				9B97BC331BE2D08200CF1E29 /* stdafx.cpp in Sources */,
@@ -562,14 +562,14 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/../Release/include/",
-					"$(SRCROOT)/../../External/OpenSSL/include",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/include",
 					"${SRCROOT}/../Release/libs/websocketpp/",
-					"$(SRCROOT)/../../External/Boost/include",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../../External/OpenSSL/iOS/lib/",
-					"$(SRCROOT)/../../External/Boost/iOS/lib",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/iOS/lib/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/iOS/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
@@ -590,14 +590,14 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/../Release/include/",
-					"$(SRCROOT)/../../External/OpenSSL/include",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/include",
 					"${SRCROOT}/../Release/libs/websocketpp/",
-					"$(SRCROOT)/../../External/Boost/include",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/include",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
-					"$(SRCROOT)/../../External/OpenSSL/iOS/lib/",
-					"$(SRCROOT)/../../External/Boost/iOS/lib",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/iOS/lib/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/iOS/lib",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "";
