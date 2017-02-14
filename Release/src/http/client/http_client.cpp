@@ -281,10 +281,10 @@ public:
     {}
 
     // pplx::extensibility::recursive_lock_t does not support move/copy, but does not delete the functions either.
-    http_pipeline(const http_pipeline &) = delete;
-    http_pipeline(http_pipeline &&) = delete;
-    http_pipeline & operator=(const http_pipeline &) = delete;
-    http_pipeline & operator=(http_pipeline &&) = delete;
+    http_pipeline(const http_pipeline &);
+    http_pipeline(http_pipeline &&);
+    http_pipeline & operator=(const http_pipeline &);
+    http_pipeline & operator=(http_pipeline &&);
 
     /// <summary>
     /// Initiate an http request into the pipeline
@@ -357,12 +357,21 @@ void http_client::add_handler(const std::shared_ptr<http::http_pipeline_stage> &
     m_pipeline->append(stage);
 }
 
-http_client::http_client(const uri &base_uri) : http_client(base_uri, http_client_config())
-{}
+http_client::http_client(const uri &base_uri)
+{
+	init(base_uri, http_client_config());
+}
 
 http_client::http_client(const uri &base_uri, const http_client_config &client_config)
 {
-    std::shared_ptr<details::_http_client_communicator> final_pipeline_stage;
+    init(base_uri, client_config);
+}
+
+http_client::~http_client() CPPREST_NOEXCEPT {}
+
+void http_client::init(const uri &base_uri, const http_client_config &client_config)
+{
+	std::shared_ptr<details::_http_client_communicator> final_pipeline_stage;
 
     if (base_uri.scheme().empty())
     {
@@ -390,8 +399,6 @@ http_client::http_client(const uri &base_uri, const http_client_config &client_c
     add_handler(std::static_pointer_cast<http::http_pipeline_stage>(
         std::make_shared<oauth2::details::oauth2_handler>(client_config.oauth2())));
 }
-
-http_client::~http_client() CPPREST_NOEXCEPT {}
 
 const http_client_config & http_client::client_config() const
 {

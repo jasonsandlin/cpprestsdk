@@ -728,7 +728,7 @@ public:
     }
 
 private:
-
+	void init(const uri &base_uri, const http_client_config &client_config);
     std::shared_ptr<::web::http::client::http_pipeline> m_pipeline;
 };
 
