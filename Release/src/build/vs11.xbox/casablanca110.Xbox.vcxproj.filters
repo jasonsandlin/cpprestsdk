@@ -58,6 +58,9 @@
     <ClCompile Include="..\..\http\client\http_client_msg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\http\client\http_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\compat\linux_compat.h">
@@ -206,6 +209,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\cpprest\details\web_utilities.h">
       <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\http\client\http_client_impl.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
