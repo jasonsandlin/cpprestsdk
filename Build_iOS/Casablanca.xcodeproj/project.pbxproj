@@ -39,6 +39,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		3D36320A1E5E25D00030C694 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B97BADF1BE29EAF00CF1E29 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,6 +60,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D36320E1E5E25D00030C694 /* libCasablanca_tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCasablanca_tvOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4A418A1E1DBFC300E17B09 /* http_client_impl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_client_impl.h; sourceTree = "<group>"; };
 		9B4A418B1E1DC13600E17B09 /* http_client.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = http_client.cpp; sourceTree = "<group>"; };
 		9B97BAE11BE29EAF00CF1E29 /* libCasablanca.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCasablanca.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +141,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3D3632091E5E25D00030C694 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B97BADE1BE29EAF00CF1E29 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -154,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				9B97BAE11BE29EAF00CF1E29 /* libCasablanca.a */,
+				3D36320E1E5E25D00030C694 /* libCasablanca_tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -381,6 +399,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3D3631EA1E5E25D00030C694 /* Casablanca_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D36320B1E5E25D00030C694 /* Build configuration list for PBXNativeTarget "Casablanca_tvOS" */;
+			buildPhases = (
+				3D3631EB1E5E25D00030C694 /* Sources */,
+				3D3632091E5E25D00030C694 /* Frameworks */,
+				3D36320A1E5E25D00030C694 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Casablanca_tvOS;
+			productName = Casablanca;
+			productReference = 3D36320E1E5E25D00030C694 /* libCasablanca_tvOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		9B97BAE01BE29EAF00CF1E29 /* Casablanca */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B97BAEA1BE29EAF00CF1E29 /* Build configuration list for PBXNativeTarget "Casablanca" */;
@@ -425,11 +460,48 @@
 			projectRoot = "";
 			targets = (
 				9B97BAE01BE29EAF00CF1E29 /* Casablanca */,
+				3D3631EA1E5E25D00030C694 /* Casablanca_tvOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3D3631EB1E5E25D00030C694 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B97BC441BE2D08200CF1E29 /* ws_client_wspp.cpp in Sources */,
+				9B97BC401BE2D08200CF1E29 /* base64.cpp in Sources */,
+				9B97BC2F1BE2D08200CF1E29 /* oauth2.cpp in Sources */,
+				9B97BC421BE2D08200CF1E29 /* ws_client.cpp in Sources */,
+				9B97BC391BE2D08200CF1E29 /* fileio_posix.cpp in Sources */,
+				9B97BC201BE2D08200CF1E29 /* http_client_msg.cpp in Sources */,
+				9B97BC1F1BE2D08200CF1E29 /* http_client_asio.cpp in Sources */,
+				9B97BC341BE2D08200CF1E29 /* pplx.cpp in Sources */,
+				9B97BC3F1BE2D08200CF1E29 /* asyncrt_utils.cpp in Sources */,
+				9B97BC311BE2D08200CF1E29 /* json_parsing.cpp in Sources */,
+				9B97BC2C1BE2D08200CF1E29 /* http_server_asio.cpp in Sources */,
+				9B97BC281BE2D08200CF1E29 /* http_msg.cpp in Sources */,
+				9B4A418C1E1DC13600E17B09 /* http_client.cpp in Sources */,
+				9B97BC411BE2D08200CF1E29 /* web_utilities.cpp in Sources */,
+				9B97BC321BE2D08200CF1E29 /* json_serialization.cpp in Sources */,
+				9B97BC271BE2D08200CF1E29 /* http_helpers.cpp in Sources */,
+				9B97BC331BE2D08200CF1E29 /* stdafx.cpp in Sources */,
+				9B97BC291BE2D08200CF1E29 /* http_listener.cpp in Sources */,
+				9B97BC301BE2D08200CF1E29 /* json.cpp in Sources */,
+				9B97BC451BE2D08200CF1E29 /* ws_msg.cpp in Sources */,
+				9B97BC2A1BE2D08200CF1E29 /* http_listener_msg.cpp in Sources */,
+				9B97BC381BE2D08200CF1E29 /* threadpool.cpp in Sources */,
+				9B97BC2B1BE2D08200CF1E29 /* http_server_api.cpp in Sources */,
+				9B97BC3C1BE2D08200CF1E29 /* uri.cpp in Sources */,
+				9B97BC2E1BE2D08200CF1E29 /* oauth1.cpp in Sources */,
+				9B97BC3E1BE2D08200CF1E29 /* uri_parser.cpp in Sources */,
+				9B97BC231BE2D08200CF1E29 /* x509_cert_utilities.cpp in Sources */,
+				9B97BC3D1BE2D08200CF1E29 /* uri_builder.cpp in Sources */,
+				9B97BC351BE2D08200CF1E29 /* pplxapple.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9B97BADD1BE29EAF00CF1E29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -469,6 +541,66 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3D36320C1E5E25D00030C694 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BITCODE_ENABLED = YES;
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../Release/include/",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/include",
+					"${SRCROOT}/../Release/libs/websocketpp/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/tvOS/lib/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/tvOS/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Debug;
+		};
+		3D36320D1E5E25D00030C694 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				BITCODE_ENABLED = YES;
+				COPY_PHASE_STRIP = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = (
+					"${SRCROOT}/../Release/include/",
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/include",
+					"${SRCROOT}/../Release/libs/websocketpp/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/include",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(SRCROOT)/../../sdk.mobile/External/OpenSSL/tvOS/lib/",
+					"$(SRCROOT)/../../sdk.mobile/External/Boost/tvOS/lib",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s";
+			};
+			name = Release;
+		};
 		9B97BAE81BE29EAF00CF1E29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -612,6 +744,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3D36320B1E5E25D00030C694 /* Build configuration list for PBXNativeTarget "Casablanca_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D36320C1E5E25D00030C694 /* Debug */,
+				3D36320D1E5E25D00030C694 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		9B97BADC1BE29EAF00CF1E29 /* Build configuration list for PBXProject "Casablanca" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
