@@ -162,7 +162,7 @@
     <ApplicationEnvironment>title</ApplicationEnvironment>
     <ProjectGuid>{e621c269-d177-4c1b-80ea-c0a274b7a151}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <ProjectName>casablanca140.xbox</ProjectName>
+    <ProjectName>casablanca141.xbox</ProjectName>
     <RootNamespace>casablanca</RootNamespace>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
