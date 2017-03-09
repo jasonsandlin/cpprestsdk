@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.root))\Build\Config.Definitions.Durango.props" />
+  <ItemGroup>
+    <ClCompile Include="..\..\http\client\http_client.cpp" />
+    <ClCompile Include="..\..\http\client\http_client_msg.cpp" />
+    <ClCompile Include="..\..\http\client\http_client_winrt.cpp" />
+    <ClCompile Include="..\..\http\oauth\oauth2.cpp" />
+    <ClCompile Include="..\..\pplx\pplx.cpp" />
+    <ClCompile Include="..\..\pplx\pplxwin.cpp" />
+    <ClCompile Include="..\..\websockets\client\ws_client.cpp" />
+    <ClCompile Include="..\..\websockets\client\ws_client_winrt.cpp" />
+    <ClCompile Include="..\..\websockets\client\ws_msg.cpp" />
+    <ClInclude Include="..\..\..\include\cpprest\details\basic_types.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\cpprest_compat.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\fileio.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_client_impl.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_helpers.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_api.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_asio.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_httpsys.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\ioscheduler.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\nosal.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\SafeInt3.hpp" />
+    <ClInclude Include="..\..\..\include\cpprest\details\uri_parser.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\web_utilities.h" />
+    <ClInclude Include="..\..\..\include\cpprest\details\x509_cert_utilities.h" />
+    <ClInclude Include="..\..\..\include\cpprest\filestream.h" />
+    <ClInclude Include="..\..\..\include\cpprest\http_listener.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\cpprest\oauth1.h" />
+    <ClInclude Include="..\..\..\include\cpprest\oauth2.h" />
+    <ClInclude Include="..\..\..\include\cpprest\uri_builder.h" />
+    <ClInclude Include="..\..\..\include\cpprest\version.h" />
+    <ClInclude Include="..\..\..\include\cpprest\ws_client.h" />
+    <ClInclude Include="..\..\..\include\cpprest\ws_msg.h" />
+    <ClInclude Include="..\..\http\client\http_client_impl.h" />
+    <ClInclude Include="..\..\pch\stdafx.h">
+      <Filter>Header Files\precompiled header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\astreambuf.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\asyncrt_utils.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\base_uri.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\containerstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_client.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_constants.dat">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_headers.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_msg.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\interopstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\json.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\compat\linux_compat.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\compat\nosal.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplx.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxconv.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxinterface.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxtasks.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxwin.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\producerconsumerstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\rawptrstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\streams.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\threadpool.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\uri.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\uri_parser.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\compat\windows_compat.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxcancellation_token.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\http\common\http_helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\common\http_msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json_parsing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json_serialization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\uri\uri.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\uri\uri_builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\uri\uri_parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utilities\asyncrt_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utilities\base64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pch\stdafx.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\cpprest\details\http_constants.dat" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <!-- This property is set 'title' for XDK, remove it when you need to build for ADK -->
+    <ApplicationEnvironment>title</ApplicationEnvironment>
+    <ProjectGuid>{e621c269-d177-4c1b-80ea-c0a274b7a151}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>casablanca140.xbox</ProjectName>
+    <RootNamespace>casablanca</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>false</AppContainerApplication>
+    <ConsumeWinRT>true</ConsumeWinRT>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseXboxServices>false</UseXboxServices>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectFolder>$(MSBuildProjectName)</ProjectFolder>
+    <OutDir>$(ProjectDir)..\..\..\..\..\Binaries\$(Configuration)\$(Platform)\$(ProjectFolder)\</OutDir>
+    <IntDir>$(ProjectDir)..\..\..\..\..\Obj\$(Configuration)\$(Platform)\$(ProjectFolder)\</IntDir>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'" Label="Configuration">
+    <CharacterSet>Unicode</CharacterSet>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PreprocessorDefinitions>_PPLX_EXPORT;_ASYNCRT_EXPORT;_WINRT_DLL;WIN32_LEAN_AND_MEAN=1;ENABLE_INTSAFE_SIGNED_FUNCTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalUsingDirectories>$(WindowsSDK_MetadataPath);$(AdditionalUsingDirectories)</AdditionalUsingDirectories>
+      <AdditionalOptions>/bigobj -Zm135 %(AdditionalOptions)</AdditionalOptions>
+      <ProgramDataBaseFileName>$(OutDir)$(ProjectName).pdb</ProgramDataBaseFileName>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level4</WarningLevel>
+      <TreatWarningAsError>true</TreatWarningAsError>
+      <AdditionalIncludeDirectories>..\..\;..\..\..\include;..\..\pch;$(WebsocketppIncludeDir);%(AdditionalIncludeDirectories);</AdditionalIncludeDirectories>
+      <SuppressStartupBanner Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</SuppressStartupBanner>
+      <MinimalRebuild>false</MinimalRebuild>
+      <CompileAsWinRT>true</CompileAsWinRT>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <Lib>
+      <AdditionalOptions>/ignore:4264 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)'=='Release'">
+    <ClCompile>
+      <PreprocessorDefinitions>NDEBUG;ENABLE_INTSAFE_SIGNED_FUNCTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</WholeProgramOptimization>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/DEBUGTYPE:CV,FIXUP %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.root))\Build\Build.Durango.Cpp.props" />
+</Project>

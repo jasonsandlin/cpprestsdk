@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\uri\uri_parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utilities\asyncrt_utils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\utilities\base64.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\common\http_helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\common\http_msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json_parsing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\json\json_serialization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\oauth\oauth2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pplx\pplx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pch\stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\uri\uri.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\uri\uri_builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\websockets\client\ws_msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\websockets\client\ws_client_winrt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\websockets\client\ws_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\pplx\pplxwin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\client\http_client_winrt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\client\http_client_msg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\http\client\http_client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\compat\linux_compat.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\compat\nosal.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\compat\windows_compat.h">
+      <Filter>Header Files\compat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\astreambuf.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\asyncrt_utils.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\base_uri.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\containerstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_client.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_constants.dat">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_headers.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_listener.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\http_msg.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\json.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\oauth2.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\producerconsumerstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\rawptrstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\streams.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\uri.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxwin.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxtasks.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxconv.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplx.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\uri_parser.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\threadpool.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\interopstream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxcancellation_token.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\pplx\pplxinterface.h">
+      <Filter>Header Files\pplx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\pch\stdafx.h">
+      <Filter>Header Files\precompiled header</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\filestream.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\oauth1.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\uri_builder.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\version.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\ws_client.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\ws_msg.h">
+      <Filter>Header Files\cpprest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\basic_types.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\cpprest_compat.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\fileio.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_client_impl.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_helpers.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_api.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_asio.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\http_server_httpsys.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\ioscheduler.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\nosal.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\SafeInt3.hpp">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\uri_parser.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\x509_cert_utilities.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\cpprest\details\web_utilities.h">
+      <Filter>Header Files\cpprest\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\http\client\http_client_impl.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{10a28c42-45b2-4cfb-b22b-db990ab43331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\compat">
+      <UniqueIdentifier>{79db9606-4a62-465a-b486-678fc7a3658d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cpprest">
+      <UniqueIdentifier>{25762688-8a5a-4479-a7e2-f7355e60845d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\pplx">
+      <UniqueIdentifier>{81f0cd30-89f2-4c0d-9775-4ae28daaab62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\precompiled header">
+      <UniqueIdentifier>{b8cfac9c-b112-4d8b-85fc-096cfc79a301}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0b14b5d5-31e6-4df6-92b7-1212df20235f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\cpprest\details">
+      <UniqueIdentifier>{4c1b49f4-4395-4436-9f24-8b627fe43730}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\include\cpprest\details\http_constants.dat">
+      <Filter>Header Files\cpprest\details</Filter>
+    </None>
+  </ItemGroup>
+</Project>
