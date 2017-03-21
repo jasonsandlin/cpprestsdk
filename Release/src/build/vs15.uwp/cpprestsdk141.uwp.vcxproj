@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.root))\Build\version.props" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|ARM">
@@ -35,8 +35,8 @@
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
     <ApplicationTypeRevision>10</ApplicationTypeRevision>
-    <ProjectName>cpprestsdk140.uwp</ProjectName>
-    <PlatformToolset>v140</PlatformToolset>
+    <ProjectName>cpprestsdk141.uwp</ProjectName>
+    <PlatformToolset>v141</PlatformToolset>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <OutDir>$(OutDir)\$(MsBuildProjectName)</OutDir>
     <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
@@ -59,7 +59,7 @@
     <DebugFileSuffix>d</DebugFileSuffix>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetName>$(CppRestBaseFileName)140$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix)</TargetName>
+    <TargetName>$(CppRestBaseFileName)141$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalOptions>-Zm250 /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <ProgramDataBaseFileName>$(OutDir)$(CppRestBaseFileName)140$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(CppRestBaseFileName)141$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix).pdb</ProgramDataBaseFileName>
       <WholeProgramOptimization Condition="'$(Configuration)'=='Release'">true</WholeProgramOptimization>
     </ClCompile>
     <Link>

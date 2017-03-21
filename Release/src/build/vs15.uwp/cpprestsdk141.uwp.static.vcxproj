@@ -59,7 +59,7 @@
     <DebugFileSuffix>d</DebugFileSuffix>
   </PropertyGroup>
   <PropertyGroup>
-    <TargetName>$(CppRestBaseFileName)140$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix)</TargetName>
+    <TargetName>$(CppRestBaseFileName)141$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix)</TargetName>
   </PropertyGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup />
@@ -76,7 +76,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalOptions>-Zm250 /bigobj %(AdditionalOptions)</AdditionalOptions>
-      <ProgramDataBaseFileName>$(OutDir)$(CppRestBaseFileName)140$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix).pdb</ProgramDataBaseFileName>
+      <ProgramDataBaseFileName>$(OutDir)$(CppRestBaseFileName)141$(DebugFileSuffix)_uwp_$(CppRestSDKVersionFileSuffix).pdb</ProgramDataBaseFileName>
       <WholeProgramOptimization Condition="'$(Configuration)'=='Release'">false</WholeProgramOptimization>
     </ClCompile>
     <Link>
