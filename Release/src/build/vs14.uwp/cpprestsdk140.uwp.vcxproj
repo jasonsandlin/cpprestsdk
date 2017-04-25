@@ -87,14 +87,6 @@
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ItemDefinitionGroup>
-    <PostBuildEvent>
-      <Command>copy /Y "$(OutDir)\*" "$(OutDir)..\"
-        link /edit /appcontainer:no "$(OutDir)..\$(TargetName).dll"
-        exit 0</Command>
-      <Message>Copying $(TargetName).winrt binaries to OutDir and removing appcontainer flag</Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
