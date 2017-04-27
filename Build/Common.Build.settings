@@ -44,7 +44,7 @@
     <WebsocketppIncludeDir>$(BuildRoot)\Release\libs\websocketpp</WebsocketppIncludeDir>
     <PackagesRoot Condition="'$(PackagesRoot)'=='' AND Exists('$(BuildRoot)\packages')">$(BuildRoot)\packages</PackagesRoot>
     <PackagesRoot Condition="'$(PackagesRoot)'=='' AND Exists('$(BuildRoot)\..\Tools\packages')">$(BuildRoot)\..\Tools\packages</PackagesRoot>
-    <PackagesRoot Condition="'$(PackagesRoot)'=='' AND Exists('$(BuildRoot)\..\External\Packages')">$(BuildRoot)\..\External\Packages</PackagesRoot>
+    <PackagesRoot Condition="'$(PackagesRoot)'=='' AND Exists('$(BuildRoot)\..\..\External\Packages')">$(BuildRoot)\..\..\External\Packages</PackagesRoot>
     <CollateralsDir>$(BuildRoot)\Release\Collateral</CollateralsDir>
   </PropertyGroup>
 
