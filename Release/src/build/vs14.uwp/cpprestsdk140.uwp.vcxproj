@@ -34,13 +34,18 @@
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
     <ApplicationType>Windows Store</ApplicationType>
-    <ApplicationTypeRevision>10</ApplicationTypeRevision>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <ProjectName>cpprestsdk140.uwp</ProjectName>
     <PlatformToolset>v140</PlatformToolset>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <OutDir>$(OutDir)\$(MsBuildProjectName)</OutDir>
     <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ConsumeWinRT>true</ConsumeWinRT>
+    <GenerateManifest>false</GenerateManifest>
+    <CharacterSet>Unicode</CharacterSet>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+    <ApplicationEnvironment>title</ApplicationEnvironment>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
