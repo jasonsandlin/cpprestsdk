@@ -384,7 +384,7 @@ namespace web {
             return !(is_empty() || is_host_loopback() || is_host_wildcard());
         }
 
-        // <summary>
+        /// <summary>
         /// A default port is one where the port is unspecified, and will be determined by the operating system.
         /// The choice of default port may be dictated by the scheme (http -> 80) or not.
         /// </summary>

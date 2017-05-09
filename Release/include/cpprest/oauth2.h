@@ -183,7 +183,7 @@ private:
 ///
 /// Performing OAuth 2.0 authorization:
 /// 1. Set service and client/app parameters:
-/// -  Client/app key & secret (as provided by the service).
+/// -  Client/app key and secret (as provided by the service).
 /// -  The service authorization endpoint and token endpoint.
 /// -  Your client/app redirect URI.
 /// -  Use set_state() to assign a unique state string for the authorization
@@ -426,11 +426,12 @@ public:
     /// </summary>
     /// <returns>HTTP Basic authentication setting for token endpoint.</returns>
     bool http_basic_auth() const { return m_http_basic_auth; }
+
     /// <summary>
     /// Set HTTP Basic authentication setting for token endpoint.
     /// This setting must be selected based on what the service accepts.
     /// True means HTTP Basic authentication is used for the token endpoint.
-    /// False means client key & secret are passed in the HTTP request body.
+    /// False means client key and secret are passed in the HTTP request body.
     /// Default: True.
     /// </summary>
     /// <param name="http_basic_auth">The HTTP Basic authentication setting to set.</param>

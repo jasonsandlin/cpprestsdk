@@ -206,7 +206,7 @@ public:
     /// <summary>
     /// Checks if this proxy was constructed with default settings.
     /// </summary>
-    /// <returns>True if default, false otherwise.</param>
+    /// <returns>True if default, false otherwise.</returns>
     bool is_default() const { return m_mode == use_default_; }
 
     /// <summary>

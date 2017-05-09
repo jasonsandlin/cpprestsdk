@@ -77,7 +77,7 @@ namespace web { namespace details
         /// Subdelimiters are those characters that may have a defined meaning within component
         /// of a uri for a particular scheme. They do not serve as delimiters in any case between
         /// uri segments. sub_delimiters include:
-        /// - All of these !$&'()*+,;=
+        /// - All of these !$&amp;'()*+,;=
         /// </summary>
         inline bool is_sub_delim(int c)
         {
