@@ -463,7 +463,7 @@ public:
     /// </summary>
     /// <returns>HTTP headers for this response.</returns>
     /// <remarks>
-    /// Use the <seealso cref="http_headers::add Method"/> to fill in desired headers.
+    /// Use the http_headers::add method to fill in desired headers.
     /// </remarks>
     http_headers &headers() { return _m_impl->headers(); }
 
@@ -990,7 +990,6 @@ public:
     /// Sets the body of the message to a textual string and set the "Content-Type" header. Assumes
     /// the character encoding of the string is UTF-16 will perform conversion to UTF-8.
     /// </summary>
-    /// </summary>
     /// <param name="body_text">String containing body text.</param>
     /// <param name="content_type">MIME type to set the "Content-Type" header to. Default to "text/plain".</param>
     /// <remarks>
@@ -1185,6 +1184,7 @@ public:
         return reply(response);
     }
 
+    /// <summary>
     /// Responds to this HTTP request with a string.
     /// Assumes the character encoding of the string is UTF-8.
     /// </summary>
@@ -1193,7 +1193,7 @@ public:
     /// <param name="content_type">Content type of the body.</param>
     /// <returns>An asynchronous operation that is completed once response is sent.</returns>
     /// <remarks>
-    //  Callers of this function do NOT need to block waiting for the response to be
+    ///  Callers of this function do NOT need to block waiting for the response to be
     /// sent to before the body data is destroyed or goes out of scope.
     /// </remarks>
     pplx::task<void> reply(http::status_code status, utf8string &&body_data, const utf8string &content_type = "text/plain; charset=utf-8") const
@@ -1367,7 +1367,7 @@ class http_pipeline;
 /// the application and/or libraries. The default stage will interact with lower-level
 /// communication layers to actually send the message on the network. When creating a client
 /// instance, an application may add pipeline stages in front of the already existing
-/// stages. Each stage has a reference to the next stage available in the <seealso cref="http_pipeline_stage::next_stage Method"/>
+/// stages. Each stage has a reference to the next stage available in the <seealso cref="http_pipeline_stage::next_stage()"/>
 /// value.
 /// </remarks>
 class http_pipeline_stage : public std::enable_shared_from_this<http_pipeline_stage>

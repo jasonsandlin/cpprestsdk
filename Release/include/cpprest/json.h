@@ -150,7 +150,7 @@ namespace json
         /// <remarks>
         /// This constructor has O(n) performance because it tries to determine if
         /// specified string has characters that should be properly escaped in JSON.
-        /// <remarks>
+        /// </remarks>
         _ASYNCRTIMP explicit value(utility::string_t value);
 
         /// <summary>
@@ -185,7 +185,7 @@ namespace json
         /// Constructor creating a JSON string value
         /// </summary>
         /// <param name="value">The C++ value to create a JSON value from, a C++ STL string of the platform-native character width</param>
-        /// <param name="has_escape_chars">Whether <paramref name="value" /> contains characters
+        /// <param name="has_escape_chars">Whether <paramref name="value" /> contains characters</param>
         /// <remarks>
         /// <para>
         /// This overload has O(1) performance.
@@ -278,7 +278,7 @@ namespace json
         /// <remarks>
         /// This overload has O(n) performance because it tries to determine if
         /// specified string has characters that should be properly escaped in JSON.
-        /// <remarks>
+        /// </remarks>
         static _ASYNCRTIMP value __cdecl string(utility::string_t value);
 
         /// <summary>
@@ -475,21 +475,21 @@ public:
 
         /// <summary>
         /// Converts the JSON value to a C++ double, if and only if it is a number value.
-        /// Throws <see cref="json_exception"/>  if the value is not a number
+        /// Throws json_exception if the value is not a number
         /// </summary>
         /// <returns>A double representation of the value</returns>
         _ASYNCRTIMP double as_double() const;
 
         /// <summary>
         /// Converts the JSON value to a C++ integer, if and only if it is a number value.
-        /// Throws <see cref="json_exception"/> if the value is not a number
+        /// Throws json_exception if the value is not a number
         /// </summary>
         /// <returns>An integer representation of the value</returns>
         _ASYNCRTIMP int as_integer() const;
 
         /// <summary>
         /// Converts the JSON value to a number class, if and only if it is a number value.
-        /// Throws <see cref="json_exception"/>  if the value is not a number
+        /// Throws json_exception if the value is not a number
         /// </summary>
         /// <returns>An instance of number class</returns>
         _ASYNCRTIMP const json::number& as_number() const;
