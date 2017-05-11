@@ -1027,7 +1027,6 @@ public:
         utf8string contentType = "application/json";
         _m_impl->_record_body_data_for_retry(body_text, contentType);
         _m_impl->set_body(concurrency::streams::bytestream::open_istream(std::move(body_text)), length, contentType);
-        _m_impl->set_body(concurrency::streams::bytestream::open_istream(std::move(body_text)), length, _XPLATSTR("application/json"));
     }
 
     /// <summary>
