@@ -413,6 +413,12 @@ namespace streams
                     closeOp = closeOp && _close_write().then([this_ptr]{}); // passing down exceptions from closeOp
                 else
                     closeOp = closeOp.then([this_ptr] { return this_ptr->_close_write().then([this_ptr]{}); });
+
+                closeOp.then([](pplx::task<void> t)
+                {
+                    try { t.get(); }
+                    catch (...) {}
+                });
             }
 
             return closeOp;
