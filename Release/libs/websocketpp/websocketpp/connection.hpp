@@ -1375,7 +1375,9 @@ private:
     template <typename error_type>
     void log_err(log::level l, char const * msg, error_type const & ec) {
         std::stringstream s;
-        s << msg << " error: " << ec << " (" << ec.message() << ")";
+		// Minecraft: Removing the call to retrieve the message because it dereferences the category 
+		// pointer stored within boost::system:error_code.ur suspect for peculiar android & iOS crashes.
+		s << msg << " error: " << ec.value() << " ([message removed because boost causes crashes here])";
         m_elog.write(l, s.str());
     }
 
