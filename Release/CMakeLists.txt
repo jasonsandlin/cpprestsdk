@@ -1,11 +1,15 @@
 set(CMAKE_LEGACY_CYGWIN_WIN32 0)
 cmake_minimum_required(VERSION 2.6)
-project(casablanca)
+project(cpprest)
 
 enable_testing()
 
 set(WARNINGS)
 set(ANDROID_STL_FLAGS)
+
+option(WERROR "Threat Warnings as Errors" ON)
+option(BUILD_TESTS "Build tests." ON)
+option(CPPREST_EXCLUDE_WEBSOCKETS "Exclude websockets functionality." OFF)
 
 # Platform (not compiler) specific settings
 if(IOS)
@@ -25,7 +29,6 @@ if(IOS)
 
   set(BUILD_SHARED_LIBS OFF)
   set(BUILD_SAMPLES OFF)
-  option(BUILD_TESTS "Build tests." ON)
 elseif(ANDROID)
   set(Boost_COMPILER "-clang")
   set(Boost_USE_STATIC_LIBS ON)
@@ -71,9 +74,8 @@ elseif(ANDROID)
 
   option(BUILD_SHARED_LIBS "Build shared Libraries." OFF)
   set(BUILD_SAMPLES OFF)
-  option(BUILD_TESTS "Build tests." ON)
 elseif(UNIX) # This includes OSX
-  find_package(Boost REQUIRED COMPONENTS random chrono system thread regex filesystem)
+  find_package(Boost 1.54 REQUIRED COMPONENTS random chrono system thread regex filesystem)
   find_package(Threads REQUIRED)
   if(APPLE AND NOT OPENSSL_ROOT_DIR)
     # Prefer a homebrew version of OpenSSL over the one in /usr/lib
@@ -86,7 +88,6 @@ elseif(UNIX) # This includes OSX
   find_package(OpenSSL 1.0.0 REQUIRED)
 
   option(BUILD_SHARED_LIBS "Build shared Libraries." ON)
-  option(BUILD_TESTS "Build tests." ON)
   option(BUILD_SAMPLES "Build samples." ON)
   option(CASA_INSTALL_HEADERS "Install header files." ON)
   if(CASA_INSTALL_HEADERS)
@@ -99,9 +100,7 @@ elseif(UNIX) # This includes OSX
   endif()
 elseif(WIN32)
   option(BUILD_SHARED_LIBS "Build shared Libraries." ON)
-  option(BUILD_TESTS "Build tests." ON)
   option(BUILD_SAMPLES "Build samples." ON)
-  option(CPPREST_EXCLUDE_WEBSOCKETS "Exclude websockets functionality." OFF)
   option(Boost_USE_STATIC_LIBS ON)
 
   add_definitions(-DUNICODE -D_UNICODE)
@@ -115,11 +114,31 @@ elseif(WIN32)
   endif()
   add_definitions(${Casablanca_DEFINITIONS} -D_WINSOCK_DEPRECATED_NO_WARNINGS -DWIN32)
 
-  if (CPPREST_EXCLUDE_WEBSOCKETS)
-    add_definitions(-DCPPREST_EXCLUDE_WEBSOCKETS=1)
-  else()
-    find_package(Boost 1.55 REQUIRED COMPONENTS random system thread filesystem chrono atomic)
-    find_package(OpenSSL 1.0 REQUIRED)
+  if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
+    set(NUGET_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../packages")
+    set(PACKAGE_PATHS)
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/boost.1.58.0.0/")
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/boost_system-vc140.1.58.0-vs140rc/")
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/boost_date_time-vc140.1.58.0-vs140rc/")
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/boost_regex-vc140.1.58.0-vs140rc/")
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/openssl.v140.windesktop.msvcstl.static.rt-dyn.x64.1.0.2.1/")
+    list(APPEND PACKAGE_PATHS "${NUGET_PATH}/zlib.v140.windesktop.msvcstl.static.rt-dyn.1.2.8.8/")
+
+    if (NOT WINDOWS_STORE AND NOT WINDOWS_PHONE)
+      find_library(Boost_SYSTEM_LIBRARY libboost_system-vc140-mt-gd-1_58.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/address-model-64/lib)
+      find_library(Boost_DATE_TIME_LIBRARY libboost_date_time-vc140-mt-gd-1_58.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/address-model-64/lib)
+      find_library(Boost_REGEX_LIBRARY libboost_regex-vc140-mt-gd-1_58.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/address-model-64/lib)
+      set(Boost_LIBRARIES ${Boost_REGEX_LIBRARY} ${Boost_SYSTEM_LIBRARY} ${Boost_DATE_TIME_LIBRARY})
+  
+      find_library(OpenSSL_libeay_LIBRARY libeay32.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/debug)
+      find_library(OpenSSL_ssleay_LIBRARY ssleay32.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/debug)
+      find_library(ZLIB_LIBRARY zlibstaticd.lib PATHS ${PACKAGE_PATHS} PATH_SUFFIXES lib/native/v140/windesktop/msvcstl/static/rt-dyn/x64/debug)
+      set(OPENSSL_LIBRARIES ${OpenSSL_ssleay_LIBRARY} ${OpenSSL_libeay_LIBRARY} ${ZLIB_LIBRARY})
+
+      set(OPENSSL_INCLUDE_DIR "${NUGET_PATH}/openssl.v140.windesktop.msvcstl.static.rt-dyn.x64.1.0.2.1/build/native/include")
+    endif()
+
+    set(Boost_INCLUDE_DIR "${NUGET_PATH}/boost.1.58.0.0/lib/native/include")
   endif()
 else()
   message(FATAL_ERROR "-- Unsupported Build Platform.")
@@ -130,7 +149,7 @@ if(ANDROID)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-strict-aliasing")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-pedantic")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-attributes -Wno-pointer-arith")
-  include_directories(
+  include_directories(SYSTEM
     "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/include"
     "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include"
     "${ANDROID_NDK}/sources/cxx-stl/gnu-libstdc++/4.8/include/backward"
@@ -158,9 +177,18 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
   message("-- Setting msvc options")
   set(WARNINGS)
+  set(CMAKE_STATIC_LINKER_FLAGS "${CMAKE_STATIC_LINKER_FLAGS} /ignore:4264")
+  add_compile_options(/bigobj)
+  if (WINDOWS_STORE OR WINDOWS_PHONE)
+    add_compile_options(/ZW)
+  endif()
 else()
   message("-- Unknown compiler, success is doubtful.")
   message("CMAKE_CXX_COMPILER_ID=${CMAKE_CXX_COMPILER_ID}")
+endif()
+
+if (CPPREST_EXCLUDE_WEBSOCKETS)
+  add_definitions(-DCPPREST_EXCLUDE_WEBSOCKETS=1)
 endif()
 
 # Reconfigure final output directory
@@ -169,7 +197,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Binaries)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/Binaries)
 
 # These settings can be used by the test targets
-set(Casablanca_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
+set(Casablanca_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
   find_path(WEBSOCKETPP_CONFIG websocketpp-config.cmake
                         HINTS /usr/lib/cmake/websocketpp)
@@ -179,28 +207,19 @@ if (NOT CPPREST_EXCLUDE_WEBSOCKETS)
     include(${WEBSOCKETPP_CONFIG}/websocketpp-config.cmake)
     include(${WEBSOCKETPP_CONFIG}/websocketpp-configVersion.cmake)
     message("-- Found websocketpp version " ${PACKAGE_VERSION} " on system")
-    set(Casablanca_INCLUDE_DIRS ${Casablanca_INCLUDE_DIR} ${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${WEBSOCKETPP_INCLUDE_DIR})
+    set(Casablanca_SYSTEM_INCLUDE_DIRS ${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${WEBSOCKETPP_INCLUDE_DIR})
   else(WEBSOCKETPP_CONFIG AND WEBSOCKETPP_CONFIG_VERSION)
-    set(Casablanca_INCLUDE_DIRS ${Casablanca_INCLUDE_DIR} ${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/libs/websocketpp)
+    set(Casablanca_SYSTEM_INCLUDE_DIRS ${Boost_INCLUDE_DIR} ${OPENSSL_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/libs/websocketpp)
     message("-- websocketpp not found, using the embedded version")
   endif(WEBSOCKETPP_CONFIG AND WEBSOCKETPP_CONFIG_VERSION)
-else()
-  set(Casablanca_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
 endif()
 
-set(Casablanca_LIBRARY ${LIB}cpprest)
-set(Casablanca_LIBRARIES ${Casablanca_LIBRARY}
-  ${Boost_FILESYSTEM_LIBRARY}
-  ${Boost_SYSTEM_LIBRARY}
-  ${Boost_THREAD_LIBRARY}
-  ${Boost_ATOMIC_LIBRARY}
-  ${Boost_CHRONO_LIBRARY}
-  ${Boost_RANDOM_LIBRARY}
-  ${Boost_REGEX_LIBRARY}
-  ${Boost_FRAMEWORK})
+set(Casablanca_LIBRARY cpprest)
+set(Casablanca_LIBRARIES cpprest ${Boost_LIBRARIES})
 
 # Everything in the project needs access to the casablanca include directories
-include_directories(${Casablanca_INCLUDE_DIRS})
+include_directories(       ${Casablanca_INCLUDE_DIRS})
+include_directories(SYSTEM ${Casablanca_SYSTEM_INCLUDE_DIRS})
 
 # Finally, the tests all use the same style declaration to build themselves, so we use a function
 function(add_casablanca_test NAME SOURCES_VAR)
@@ -208,16 +227,16 @@ function(add_casablanca_test NAME SOURCES_VAR)
   message("-- Added test library ${NAME}")
   if (NOT TEST_LIBRARY_TARGET_TYPE STREQUAL "OBJECT")
     target_link_libraries(${NAME}
-      ${LIB}httptest_utilities
-      ${LIB}common_utilities
-      ${LIB}unittestpp
+      httptest_utilities
+      common_utilities
+      unittestpp
       ${Casablanca_LIBRARIES}
       ${ANDROID_STL_FLAGS}
       )
     if (BUILD_SHARED_LIBS)
       add_test(NAME ${NAME}
         WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}
-        COMMAND test_runner lib${NAME}${CMAKE_SHARED_LIBRARY_SUFFIX}
+        COMMAND test_runner $<TARGET_FILE_NAME:${NAME}>
         )
     endif()
   endif()
