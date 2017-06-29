@@ -108,6 +108,13 @@
       <PreprocessorDefinitions>BOOST_ASIO_HAS_STD_CHRONO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
+  <!-- Minecraft Customization to not crash on ARM chips without NEON support -->
+  <ItemDefinitionGroup Condition="'$(Platform)'=='ARM'">
+    <ClCompile>
+      <AdditionalOptions>-mfpu=vfpv3-d16 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <!-- End Minecraft Customazation -->
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
@@ -135,6 +142,7 @@
   <Import Project="..\common.vcxitems" Label="Shared" Condition="Exists('..\common.vcxitems')" />
   <Import Project="..\android.vcxitems" Label="Shared" Condition="Exists('..\android.vcxitems')" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+<!--Minecraft Customization
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
@@ -148,4 +156,6 @@
     <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_thread-android.1.59.0\build\native\boost_thread-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_thread-android.1.59.0\build\native\boost_thread-android.targets'))" />
     <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\OpenSSL\Android\openssl-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\OpenSSL\Android\openssl-android.targets'))" />
   </Target>
+Minecraft customization end -->
+  
 </Project>
