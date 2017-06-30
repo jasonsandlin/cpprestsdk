@@ -108,6 +108,12 @@
       <PreprocessorDefinitions>BOOST_ASIO_HAS_STD_CHRONO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
+  <!-- To not crash on ARM chips without NEON support -->
+  <ItemDefinitionGroup Condition="'$(Platform)'=='ARM'">
+    <ClCompile>
+      <AdditionalOptions>-mfpu=vfpv3-d16 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
