@@ -1183,7 +1183,7 @@ lib::error_code connection<config>::process_handshake_request() {
 
         if (ec) {
             std::stringstream s;
-            s << "Processing error: " << ec << "(" << ec.message() << ")";
+			s << "Processing error: " << ec.value();
             m_alog.write(log::alevel::devel, s.str());
 
             m_response.set_status(http::status_code::internal_server_error);
@@ -2228,7 +2228,7 @@ void connection<config>::log_fail_result()
     s  << " " << m_response.get_status_code();
     
     // WebSocket++ error code & reason
-    s << " " << m_ec << " " << m_ec.message();
+	s << " " << m_ec.value();
 
     m_alog.write(log::alevel::fail,s.str());
 }

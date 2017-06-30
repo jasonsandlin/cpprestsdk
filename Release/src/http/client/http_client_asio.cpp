@@ -545,9 +545,9 @@ namespace web {
 							else
 							{
 								// These errors tell if connection was closed.
-								const bool socket_was_closed((boost::asio::error::eof == ec)
-									|| (boost::asio::error::connection_reset == ec)
-									|| (boost::asio::error::connection_aborted == ec));
+								const bool socket_was_closed((boost::asio::error::eof == ec.value())
+									|| (boost::asio::error::connection_reset == ec.value())
+									|| (boost::asio::error::connection_aborted == ec.value()));
 								if (socket_was_closed && m_context->m_connection->is_reused())
 								{
 									// Failed to write to socket because connection was already closed while it was in the pool.
@@ -811,6 +811,11 @@ namespace web {
 						// By default, errorcodeValue don't need to converted
 						long errorcodeValue = ec.value();
 
+						// changed all of the (ec == boost::system::errc::###) to be (ec.value() == boost::system::errc::###)
+						// in our new builds (after the project refactoring) the implicit conversion of the boost::system::errc::errc_t enum into an error_condition
+						// seems to mess things up and then it blows up when the == operator does the compare
+						// changed the compares to match some existing code (see the compare in handle_connect() just below this)
+
 						// map timer cancellation to time_out
 						if (m_timer.has_timedout())
 						{
@@ -822,13 +827,13 @@ namespace web {
 							switch (context)
 							{
 							case httpclient_errorcode_context::writeheader:
-								if (ec == boost::system::errc::broken_pipe)
+								if (ec.value() == boost::system::errc::broken_pipe)
 								{
 									errorcodeValue = make_error_code(std::errc::host_unreachable).value();
 								}
 								break;
 							case httpclient_errorcode_context::connect:
-								if (ec == boost::system::errc::connection_refused)
+								if (ec.value() == boost::system::errc::connection_refused)
 								{
 									errorcodeValue = make_error_code(std::errc::host_unreachable).value();
 								}
@@ -1148,9 +1153,9 @@ namespace web {
 						else
 						{
 							// These errors tell if connection was closed.
-							const bool socket_was_closed((boost::asio::error::eof == ec)
-								|| (boost::asio::error::connection_reset == ec)
-								|| (boost::asio::error::connection_aborted == ec));
+							const bool socket_was_closed((boost::asio::error::eof == ec.value())
+								|| (boost::asio::error::connection_reset == ec.value())
+								|| (boost::asio::error::connection_aborted == ec.value()));
 							if (socket_was_closed && m_connection->is_reused())
 							{
 								// Failed to write to socket because connection was already closed while it was in the pool.
@@ -1350,7 +1355,7 @@ namespace web {
 
 						if (ec)
 						{
-							if (ec == boost::asio::error::eof && m_content_length == std::numeric_limits<size_t>::max())
+							if (ec.value() == boost::asio::error::eof && m_content_length == std::numeric_limits<size_t>::max())
 							{
 								m_content_length = m_downloaded + m_body_buf.size();
 							}

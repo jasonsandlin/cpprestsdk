@@ -1374,8 +1374,10 @@ private:
     /// Prints information about an arbitrary error code on the specified channel
     template <typename error_type>
     void log_err(log::level l, char const * msg, error_type const & ec) {
-        std::stringstream s;
-        s << msg << " error: " << ec << " (" << ec.message() << ")";
+        std::stringstream s;			
+		// Removing the call to retrieve the message because it dereferences the category 
+		// pointer stored within boost::system:error_code.ur suspect for peculiar android & iOS crashes.
+        s << msg << " error: " << ec.value();
         m_elog.write(l, s.str());
     }
 
