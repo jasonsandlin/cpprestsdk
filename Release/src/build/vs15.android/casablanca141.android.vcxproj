@@ -141,17 +141,6 @@
   <Import Project="..\common.vcxitems" Label="Shared" Condition="Exists('..\common.vcxitems')" />
   <Import Project="..\android.vcxitems" Label="Shared" Condition="Exists('..\android.vcxitems')" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost.1.59.0\build\native\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost.1.59.0\build\native\boost.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_atomic-android.1.59.0\build\native\boost_atomic-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_atomic-android.1.59.0\build\native\boost_atomic-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_chrono-android.1.59.0\build\native\boost_chrono-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_chrono-android.1.59.0\build\native\boost_chrono-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_date_time-android.1.59.0\build\native\boost_date_time-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_date_time-android.1.59.0\build\native\boost_date_time-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_filesystem-android.1.59.0\build\native\boost_filesystem-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_filesystem-android.1.59.0\build\native\boost_filesystem-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_system-android.1.59.0\build\native\boost_system-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_system-android.1.59.0\build\native\boost_system-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_thread-android.1.59.0\build\native\boost_thread-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\Boost\Android\boost_thread-android.1.59.0\build\native\boost_thread-android.targets'))" />
-    <Error Condition="!Exists('..\..\..\..\..\sdk.mobile\External\OpenSSL\Android\openssl-android.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\..\..\..\sdk.mobile\External\OpenSSL\Android\openssl-android.targets'))" />
-  </Target>
+
+  
 </Project>
