@@ -1218,9 +1218,16 @@ namespace web {
 						m_content_length = std::numeric_limits<size_t>::max(); // Without Content-Length header, size should be same as TCP stream - set it size_t max.
 						m_response.headers().match(header_names::content_length, m_content_length);
 
+						// Check for HEAD requests and status codes which cannot contain a
+						// message body in HTTP/1.1 (see 3.3.3/1 of the RFC 7230).
+						//
 						// note: need to check for 'chunked' here as well, azure storage sends both
 						// transfer-encoding:chunked and content-length:0 (although HTTP says not to)
-						if (m_request.method() == U("HEAD") || (!needChunked && m_content_length == 0))
+						if (m_request.method() == U("HEAD")
+							|| (status >= 100 && status < 200)
+							|| status == status_codes::NoContent
+							|| status == status_codes::NotModified
+							|| (!needChunked && m_content_length == 0))
 						{
 							// we can stop early - no body
 							const auto &progress = m_request._get_impl()->_progress_handler();
