@@ -1223,6 +1223,7 @@ namespace web {
 						//
 						// note: need to check for 'chunked' here as well, azure storage sends both
 						// transfer-encoding:chunked and content-length:0 (although HTTP says not to)
+						const auto status = m_response.status_code();
 						if (m_request.method() == U("HEAD")
 							|| (status >= 100 && status < 200)
 							|| status == status_codes::NoContent
