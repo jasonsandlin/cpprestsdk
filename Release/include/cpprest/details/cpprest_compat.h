@@ -79,6 +79,7 @@
 
 #endif
 
+#define _ASYNCRT_EXPORT
 
 #ifdef _NO_ASYNCRTIMP
 #define _ASYNCRTIMP

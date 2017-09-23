@@ -33,8 +33,7 @@
 #include <vector>
 #include <unordered_map>
 #include <cstdint>
-#include "cpprest/details/basic_types.h"
-#include "cpprest/asyncrt_utils.h"
+#include "details/asyncrt_utils.h"
 
 namespace web
 {
@@ -1932,5 +1931,10 @@ public:
     /// <returns>The input stream object.</returns>
     _ASYNCRTIMP utility::istream_t& __cdecl operator >> (utility::istream_t &is, json::value &val);
 }}
+
+#include "details/asyncrt_utils.hpp"
+#include "details/json_parsing.hpp"
+#include "details/json_serialization.hpp"
+#include "details/json.hpp"
 
 #endif

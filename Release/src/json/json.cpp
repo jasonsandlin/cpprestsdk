@@ -23,7 +23,7 @@
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 
-#include "stdafx.h"
+#include "../json.h"
 
 using namespace web;
 
@@ -321,8 +321,8 @@ bool web::json::number::is_int32() const
 {
     switch (m_type)
     {
-    case signed_type : return m_intval >= std::numeric_limits<int32_t>::min() && m_intval <= std::numeric_limits<int32_t>::max();
-    case unsigned_type : return m_uintval <= std::numeric_limits<int32_t>::max();
+    case signed_type : return m_intval >= (-2147483647-1) && m_intval <= 2147483647;
+    case unsigned_type : return m_uintval <= 0x7FFFFFFF;
     case double_type :
     default :
         return false;
@@ -333,8 +333,8 @@ bool web::json::number::is_uint32() const
 {
     switch (m_type)
     {
-    case signed_type : return m_intval >= 0 && m_intval <= std::numeric_limits<uint32_t>::max();
-    case unsigned_type : return m_uintval <= std::numeric_limits<uint32_t>::max();
+    case signed_type : return m_intval >= 0 && m_intval <= 0xFFFFFFFF;
+    case unsigned_type : return m_uintval <= 0xFFFFFFFF;
     case double_type :
     default :
         return false;
@@ -346,7 +346,7 @@ bool web::json::number::is_int64() const
     switch (m_type)
     {
     case signed_type : return true;
-    case unsigned_type : return m_uintval <= static_cast<uint64_t>(std::numeric_limits<int64_t>::max());
+    case unsigned_type : return m_uintval <= 0xffffffffffffffff;
     case double_type :
     default :
         return false;

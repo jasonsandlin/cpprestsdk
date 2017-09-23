@@ -23,8 +23,9 @@
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 
-#include "stdafx.h"
 #include <stdio.h>
+#include <array>
+#include "../json.h"
 
 #ifndef _WIN32
 #define __STDC_FORMAT_MACROS

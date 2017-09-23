@@ -23,7 +23,9 @@
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 
-#include "stdafx.h"
+#include <windows.h>
+#include <winhttp.h>
+#include "../json.h"
 
 #ifndef _WIN32
 #if defined(__clang__)
@@ -36,6 +38,16 @@
 #pragma clang diagnostic pop
 #endif
 #endif
+#include <limits>
+
+#ifndef _WIN32
+# define __STDC_LIMIT_MACROS
+# include <stdint.h>
+#else
+#include <cstdint>
+#endif
+
+#include "SafeInt3.hpp"
 
 // Could use C++ standard library if not __GLIBCXX__,
 // For testing purposes we just the handwritten on all platforms.
