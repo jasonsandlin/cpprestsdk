@@ -170,7 +170,6 @@
     <ConsumeWinRT>true</ConsumeWinRT>
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v140</PlatformToolset>
-    <UseXboxServices>false</UseXboxServices>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup>

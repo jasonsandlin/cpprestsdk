@@ -170,7 +170,6 @@
     <ConsumeWinRT>true</ConsumeWinRT>
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <PlatformToolset>v110</PlatformToolset>
-    <UseXboxServices>false</UseXboxServices>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
