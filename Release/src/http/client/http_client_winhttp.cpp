@@ -365,6 +365,67 @@ protected:
         return GetLastError();
     }
 
+    void get_ie_proxy_info(web_proxy::web_proxy_mode& mode, uri& address, bool isSecure)
+    {
+        WINHTTP_CURRENT_USER_IE_PROXY_CONFIG config = { 0 };
+        if (!WinHttpGetIEProxyConfigForCurrentUser(&config))
+        {
+            return;
+        }
+
+        address = http::uri(L"");
+        mode = web_proxy::web_proxy_mode::use_default;
+
+        if (config.fAutoDetect)
+        {
+            mode = web_proxy::web_proxy_mode::use_auto_discovery;
+        }
+        else if (config.lpszProxy != nullptr)
+        {
+            // something like "http=127.0.0.1:8888;https=127.0.0.1:8888", or "localhost:80"
+            std::wstring proxyConfig = config.lpszProxy;
+            std::wstring wProxyName;
+            if (proxyConfig.find(L";") == std::wstring::npos)
+            {
+                wProxyName = proxyConfig;
+            }
+            else
+            {
+                wchar_t* next_token;
+                wchar_t* token = wcstok_s(config.lpszProxy, L";", &next_token);
+
+                while (token != nullptr)
+                {
+                    std::wstring wToken = token;
+                    if (!isSecure && wToken.find(L"http=") == 0)
+                    {
+                        wProxyName = wToken.substr(5);
+                    }
+                    if (isSecure && wToken.find(L"https=") == 0)
+                    {
+                        wProxyName = wToken.substr(6);
+                    }
+                    token = wcstok_s(nullptr, L";", &next_token);
+                }
+            }
+
+            if (!wProxyName.empty())
+            {
+                if (wProxyName.find(L"://") == std::wstring::npos)
+                {
+                    wProxyName = L"http://" + wProxyName;
+                }
+                address = http::uri(wProxyName);
+            }
+
+            mode = (wProxyName.empty()) ? web_proxy::web_proxy_mode::disabled : web_proxy::web_proxy_mode::user_provided;
+        }
+        else
+        {
+            mode = web_proxy::web_proxy_mode::disabled;
+        }
+    }
+
     // Open session and connection with the server.
     unsigned long open()
     {
@@ -373,7 +434,21 @@ protected:
         utility::string_t proxy_str;
         http::uri uri;
 
-        const auto& config = client_config();
+        web_proxy::web_proxy_mode proxyMode;
+        http::uri proxyAddress;
+        get_ie_proxy_info(proxyMode, proxyAddress, m_secure);
+
+        auto& config = client_config();
+        if (proxyMode == web_proxy::web_proxy_mode::user_provided)
+        {
+            web_proxy webProxy(proxyAddress);
+            config.set_proxy(webProxy);
+        }
+        else
+        {
+            web_proxy webProxy(proxyMode);
+            config.set_proxy(webProxy);
+        }
 
         if(config.proxy().is_disabled())
         {
