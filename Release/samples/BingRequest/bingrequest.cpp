@@ -22,6 +22,7 @@
 * =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ****/
 
+#define _ASYNCRT_EXPORT
 #include <cpprest/http_client.h>
 #include <cpprest/filestream.h>
 

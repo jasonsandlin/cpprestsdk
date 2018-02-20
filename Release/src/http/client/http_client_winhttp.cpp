@@ -595,7 +595,11 @@ protected:
 
         // Need to form uri path, query, and fragment for this request.
         // Make sure to keep any path that was specified with the uri when the http_client was created.
-        const utility::string_t encoded_resource = http::uri_builder(m_uri).append(msg.relative_uri()).to_uri().resource().to_string();
+        auto x1 = http::uri_builder(m_uri).append(msg.relative_uri());
+        auto x2 = x1.to_uri();
+        auto x3 = x2.resource();
+        auto x4 = x3.to_string();
+        const utility::string_t encoded_resource = x4;
 
         // Open the request.
         winhttp_context->m_request_handle = WinHttpOpenRequest(
@@ -1088,6 +1092,41 @@ private:
         return true;
     }
 
+    static std::string HttpCallbackStatusCodeToString(DWORD statusCode)
+    {
+        switch (statusCode)
+        {
+            case WINHTTP_CALLBACK_STATUS_RESOLVING_NAME: return "WINHTTP_CALLBACK_STATUS_RESOLVING_NAME";
+            case WINHTTP_CALLBACK_STATUS_NAME_RESOLVED: return "WINHTTP_CALLBACK_STATUS_NAME_RESOLVED";
+            case WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER: return "WINHTTP_CALLBACK_STATUS_CONNECTING_TO_SERVER";
+            case WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER: return "WINHTTP_CALLBACK_STATUS_CONNECTED_TO_SERVER";
+            case WINHTTP_CALLBACK_STATUS_SENDING_REQUEST: return "WINHTTP_CALLBACK_STATUS_SENDING_REQUEST";
+            case WINHTTP_CALLBACK_STATUS_REQUEST_SENT: return "WINHTTP_CALLBACK_STATUS_REQUEST_SENT";
+            case WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE: return "WINHTTP_CALLBACK_STATUS_RECEIVING_RESPONSE";
+            case WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED: return "WINHTTP_CALLBACK_STATUS_RESPONSE_RECEIVED";
+            case WINHTTP_CALLBACK_STATUS_CLOSING_CONNECTION: return "WINHTTP_CALLBACK_STATUS_CLOSING_CONNECTION";
+            case WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED: return "WINHTTP_CALLBACK_STATUS_CONNECTION_CLOSED";
+            case WINHTTP_CALLBACK_STATUS_HANDLE_CREATED: return "WINHTTP_CALLBACK_STATUS_HANDLE_CREATED";
+            case WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING: return "WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING";
+            case WINHTTP_CALLBACK_STATUS_DETECTING_PROXY: return "WINHTTP_CALLBACK_STATUS_DETECTING_PROXY";
+            case WINHTTP_CALLBACK_STATUS_REDIRECT: return "WINHTTP_CALLBACK_STATUS_REDIRECT";
+            case WINHTTP_CALLBACK_STATUS_INTERMEDIATE_RESPONSE: return "WINHTTP_CALLBACK_STATUS_INTERMEDIATE_RESPONSE";
+            case WINHTTP_CALLBACK_STATUS_SECURE_FAILURE: return "WINHTTP_CALLBACK_STATUS_SECURE_FAILURE";
+            case WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE: return "WINHTTP_CALLBACK_STATUS_HEADERS_AVAILABLE";
+            case WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE: return "WINHTTP_CALLBACK_STATUS_DATA_AVAILABLE";
+            case WINHTTP_CALLBACK_STATUS_READ_COMPLETE: return "WINHTTP_CALLBACK_STATUS_READ_COMPLETE";
+            case WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE: return "WINHTTP_CALLBACK_STATUS_WRITE_COMPLETE";
+            case WINHTTP_CALLBACK_STATUS_REQUEST_ERROR: return "WINHTTP_CALLBACK_STATUS_REQUEST_ERROR";
+            case WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE: return "WINHTTP_CALLBACK_STATUS_SENDREQUEST_COMPLETE";
+            case WINHTTP_CALLBACK_STATUS_GETPROXYFORURL_COMPLETE: return "WINHTTP_CALLBACK_STATUS_GETPROXYFORURL_COMPLETE";
+            case WINHTTP_CALLBACK_STATUS_CLOSE_COMPLETE: return "WINHTTP_CALLBACK_STATUS_CLOSE_COMPLETE";
+            case WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE: return "WINHTTP_CALLBACK_STATUS_SHUTDOWN_COMPLETE";
+            default: return "n/a";
+        }
+    }
+
+
+
     // Callback used with WinHTTP to listen for async completions.
     static void CALLBACK completion_callback(
         HINTERNET hRequestHandle,
@@ -1097,6 +1136,9 @@ private:
         DWORD statusInfoLength)
     {
         CASABLANCA_UNREFERENCED_PARAMETER(statusInfoLength);
+
+        OutputDebugString(HttpCallbackStatusCodeToString(statusCode).c_str());
+        OutputDebugString("\r\n");
 
         if ( statusCode == WINHTTP_CALLBACK_STATUS_HANDLE_CLOSING )
             return;
