@@ -181,7 +181,7 @@ void _http_client_communicator::finish_request()
     }
 }
 
-const http_client_config& _http_client_communicator::client_config() const
+http_client_config& _http_client_communicator::client_config()
 {
     return m_client_config;
 }

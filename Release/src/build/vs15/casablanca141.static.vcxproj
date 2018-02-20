@@ -13,7 +13,7 @@
     <WinRTProject>false</WinRTProject>
     <TargetXP>false</TargetXP>
     <ProjectName>cpprestsdk141.static</ProjectName>
-    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), build.root))\Build\Config.Definitions.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -43,11 +43,11 @@
   </ItemGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-       <!-- Minecraft customization start -->
+      <!-- Minecraft customization start -->
       <PreprocessorDefinitions>CPPREST_EXCLUDE_WEBSOCKETS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <!-- Minecraft customization end -->
       <PreprocessorDefinitions>_ASYNCRT_EXPORT;_PPLX_EXPORT;WIN32;_MBCS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(CasablancaIncludeDir);$(CasablancaSrcDir)\pch;$(WebsocketppIncludeDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(CasablancaIncludeDir);$(CasablancaSrcDir)\pch;$(WebsocketppIncludeDir);$(PackagesRoot)\openssl.v140.windesktop.msvcstl.static.rt-dyn.x64.1.0.2.1\build\native\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalOptions>-Zm300 /bigobj %(AdditionalOptions)</AdditionalOptions>

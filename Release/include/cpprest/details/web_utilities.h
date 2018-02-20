@@ -160,7 +160,7 @@ class web_proxy
 {
     enum web_proxy_mode_internal{ use_default_, use_auto_discovery_, disabled_, user_provided_ };
 public:
-    enum web_proxy_mode{ use_default = use_default_, use_auto_discovery = use_auto_discovery_, disabled  = disabled_};
+    enum web_proxy_mode{ use_default = use_default_, use_auto_discovery = use_auto_discovery_, disabled  = disabled_, user_provided = user_provided_};
 
     /// <summary>
     /// Constructs a proxy with the default settings.

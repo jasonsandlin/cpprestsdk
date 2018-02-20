@@ -107,7 +107,7 @@ public:
 
     void finish_request();
 
-    const http_client_config& client_config() const;
+    http_client_config& client_config();
 
     const uri & base_uri() const;
 

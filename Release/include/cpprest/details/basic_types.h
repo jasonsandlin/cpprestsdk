@@ -124,6 +124,7 @@ typedef std::basic_istringstream<utf16char> utf16istringstream;
 #endif
 
 
+#undef CPPREST_EXCLUDE_WEBSOCKETS 
 #if defined(_WIN32)
 // Include on everything except Windows Desktop ARM, unless explicitly excluded.
 #if !defined(CPPREST_EXCLUDE_WEBSOCKETS)
