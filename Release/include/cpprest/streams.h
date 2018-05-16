@@ -909,6 +909,9 @@ namespace Concurrency { namespace streams
 #ifndef _WIN32 // Required by GCC, because concurrency::streams::char_traits<CharType> is a dependent scope
                         typename
 #endif
+#if _MSC_VER >= 1910 // VS2017+
+                        typename
+#endif
                         concurrency::streams::char_traits<CharType>::int_type ch;
 
                         if (_locals->saw_CR)
