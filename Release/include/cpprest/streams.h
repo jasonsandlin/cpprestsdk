@@ -897,6 +897,9 @@ namespace Concurrency { namespace streams
 #ifndef _WIN32 // Required by GCC
 							typename
 #endif
+#if _MSC_VER >= 1910 // VS2017+
+                            typename
+#endif
 							concurrency::streams::char_traits<CharType>::int_type) { return false; });
                     }
                     return pplx::task_from_result(false);
