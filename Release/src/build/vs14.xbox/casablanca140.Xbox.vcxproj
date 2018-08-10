@@ -178,6 +178,10 @@
     <IntDir>$(ProjectDir)..\..\..\..\..\Obj\$(Configuration)\$(Platform)\$(ProjectFolder)\</IntDir>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup>
+    <XsapiPathsFile>$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), xsapi.paths.props))\xsapi.paths.props</XsapiPathsFile>
+  </PropertyGroup>
+  <Import Project="$(XsapiPathsFile)" Condition="Exists($(XsapiPathsFile))" />
   <PropertyGroup Condition="'$(Configuration)'=='Debug'" Label="Configuration">
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
