@@ -210,6 +210,7 @@
       <SuppressStartupBanner Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</SuppressStartupBanner>
       <MinimalRebuild>false</MinimalRebuild>
       <CompileAsWinRT>true</CompileAsWinRT>
+      <SupportJustMyCode Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</SupportJustMyCode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
