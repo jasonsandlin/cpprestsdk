@@ -34,6 +34,8 @@
 #pragma warning(disable : 4355 4628 4266 4555 4263 4264 4868 4062 4826 4244 4654)
 #pragma warning(disable : 4619 4616 4350 4351 4472 4640 5038)
 
+#define _LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR
+
 #include "cpprest/details/cpprest_compat.h"
 #include "cpprest/details/basic_types.h"
 
