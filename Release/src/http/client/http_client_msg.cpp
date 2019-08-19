@@ -82,7 +82,7 @@ utility::string_t details::_http_request::to_string() const
 void details::_http_request::_record_body_data_for_retry(const concurrency::streams::istream &stream)
 {
     CASABLANCA_UNREFERENCED_PARAMETER(stream);
-    if (!m_bodyTextRecorded && !m_bodyVectorRecorded)
+    if (!m_bodyTextRecorded && !m_bodyVectorRecorded && stream.is_valid())
     {
         m_onlySetBodyUsingStream = true;
     }
